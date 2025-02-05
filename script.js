@@ -1,35 +1,52 @@
-const searchInput = document.getElementById('search-input');
 const resultArtist = document.getElementById("result-artist");
-const resultPlaylist = document.getElementById('result-playlists');
+const playlistContainer = document.getElementById("result-playlists");
+const searchInput = document.getElementById("search-input");
 
 function requestApi(searchTerm) {
-    const url = `http://localhost:3000/artists?name_like=${searchTerm}`
-    fetch(url)
-        .then((response) => response.json())
-        .then((result) => displayResults(result))
-}
-
-function displayResults(result) {
-    resultPlaylist.classList.add("hidden")
-    const artistName = document.getElementById('artist-name');
-    const artistImage = document.getElementById('artist-img');
-
-    result.forEach(element => {
-        artistName.innerText = element.name;
-        artistImage.src = element.urlImg;
-        
+  fetch(`http://localhost:3000/artists`)
+    .then((response) => response.json())
+    .then((results) => {
+      const filteredResults = results.filter((artist) =>
+        artist.name.toLowerCase().includes(searchTerm) // agora filtra com o nome correto
+      );
+      
+      // Se não houver resultados, esconde o painel de artistas e mostra as playlists
+      if (filteredResults.length === 0) {
+        resultArtist.classList.add("hidden");
+        playlistContainer.classList.remove("hidden");
+      } else {
+        displayResults(filteredResults); // exibe os resultados filtrados
+      }
     });
-
-    resultArtist.classList.remove('hidden');
 }
 
-document.addEventListener('input', function () {
-    const searchTerm = searchInput.value.toLowerCase();
-    if (searchTerm === '') {
-        resultPlaylist.classList.add('hidden');
-        resultArtist.classList.remove('hidden');
-        return
-    }
-    
-    requestApi(searchTerm);
-})
+function displayResults(results) {
+  hidePlaylists();
+  const artistImage = document.getElementById("artist-img");
+  const artistName = document.getElementById("artist-name");
+
+  // Exibe o primeiro artista encontrado
+  const artist = results[0]; // se você quiser mostrar mais de um, pode alterar essa parte
+  artistImage.src = artist.urlImg;
+  artistName.innerText = artist.name;
+
+  resultArtist.classList.remove("hidden");
+}
+
+function hidePlaylists() {
+  playlistContainer.classList.add("hidden");
+}
+
+searchInput.addEventListener("input", function () {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  
+  // Se o campo estiver vazio, mostra as playlists novamente
+  if (searchTerm === "") {
+    resultArtist.classList.add("hidden");
+    playlistContainer.classList.remove("hidden");
+    return;
+  }
+
+  // Realiza a busca utilizando a função refinada
+  requestApi(searchTerm);
+});
