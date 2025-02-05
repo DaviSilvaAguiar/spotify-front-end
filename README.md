@@ -36,11 +36,12 @@ Abra o arquivo index.html em seu navegador para visualizar a página.
 
 ### Menu Inicial
 
-![Menu Inicial](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/raw/main/src/assets/exemplo/MENU%20INICIAL.jpg)
+![Menu Inicial](https://github.com/DaviSilvaAguiar/spotify-front-end/raw/main/src/assets/exemplo/MENU%20INICIAL.JPG)
+
 
 ### Tela de Busca
 
-![Busca](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/raw/main/src/assets/exemplo/BUSCA.jpg)
+![Busca](https://github.com/DaviSilvaAguiar/spotify-front-end/raw/main/src/assets/exemplo/BUSCA.JPG)
 
 Spotify - Search Screen Frontend
 Developed during the Alura Front-End Immersion
@@ -81,11 +82,15 @@ This will start the JSON Server and keep it listening on port 3000.
 Open the index.html file in your browser to view the page.
 
 Demo
+
 Initial Menu
-![Menu Inicial](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/raw/main/src/assets/exemplo/MENU%20INICIAL.jpg)
+
+![Menu Inicial](https://github.com/DaviSilvaAguiar/spotify-front-end/raw/main/src/assets/exemplo/MENU%20INICIAL.JPG)
 
 Search Screen
-![Busca](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/raw/main/src/assets/exemplo/BUSCA.jpg)
+
+![Busca](https://github.com/DaviSilvaAguiar/spotify-front-end/raw/main/src/assets/exemplo/BUSCA.JPG)
+
 
 
 
